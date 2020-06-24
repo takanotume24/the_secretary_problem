@@ -17,6 +17,22 @@ module TheSecretaryProblem
       @under_2_selected_count = 0
       @nobody_selected_count = 0
     end
+
+    def sum
+      @no_1_selected_count + @under_2_selected_count + @nobody_selected_count
+    end
+
+    def p_success
+      @no_1_selected_count / sum
+    end
+
+    def p_nobody
+      @nobody_selected_count / sum
+    end
+
+    def p_notbest
+      @under_2_selected_count / sum
+    end
   end
 
   class Simulation
