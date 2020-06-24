@@ -1,0 +1,13 @@
+name: the_secretary_problem
+version: 0.1.0
+
+authors:
+  - your-name-here <your-email-here>
+
+targets:
+  the_secretary_problem:
+    main: src/the_secretary_problem.cr
+
+crystal: 0.35.1
+
+license: MIT
