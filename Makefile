@@ -1,6 +1,7 @@
 build:
 	mkdir -p bin
-	crystal build src/main.cr -o bin/main
+	crystal build src/main.cr -o bin/main ${RELEASE}
 
 run:
-	bin/main
+	mkdir -p result
+	bin/main ${N} ${SIM_TIME} >> result/N_${N}_SIM_TIME_${SIM_TIME}.csv
