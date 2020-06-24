@@ -1,6 +1,12 @@
 module TheSecretaryProblem
   VERSION = "0.1.0"
 
+  enum SimResult
+    NO1_SELECTED
+    UNDER_2_SELECTED
+    NO_ONE_SELECTED
+  end
+
   class Result
     property success_count : Int32
     property under_secound_count : Int32
@@ -24,15 +30,15 @@ module TheSecretaryProblem
       result = Result.new
 
       simulation_time.times do |i|
-        
       end
     end
   end
 
   class Applicants
     getter members : Array(Applicant)
+
     def initialize(number_of_people : Int32)
-      @members = Array.new(number_of_people) {|i| Applicant.new(i) }.shuffle
+      @members = Array.new(number_of_people) { |i| Applicant.new(i) }.shuffle
     end
   end
 
@@ -44,28 +50,27 @@ module TheSecretaryProblem
     end
   end
 
-
-  def self.choise(applicants, k)
+  def self.choise(applicants, k) : Applicant | Nil
     top_point = 0
-    
+
     applicants.members.each_index do |i|
-      applicant_point = applicants.members[i].point
+      applicant = applicants.members[i]
 
       if i < k
-        if applicant_point > top_point
-          top_point = applicant_point
+        if applicant.point > top_point
+          top_point = applicant.point
         end
         next
       end
 
-      if applicant_point > top_point
-        return i
+      if applicant.point > top_point
+        return applicant
       end
     end
   end
 
-  def self.main
-    applicants = Applicants.new 10
-    puts choise applicants,5
+  def self.main(n, k)
+    applicants = Applicants.new n
+    puts choise applicants, k
   end
 end
