@@ -1,6 +1,6 @@
 build:
 	mkdir -p bin
-	crystal build src/main.cr -o bin/main ${RELEASE}
+	crystal build src/main.cr -o bin/main ${OPTION}
 
 run:
 	mkdir -p result

@@ -7,6 +7,6 @@ module TheSecretaryProblem
   n.times do |i|
     sim = Simulation.new n: n, k: i, simulation_time: simulation_time
     result = sim.run
-    puts "#{i},#{result.no_1_selected_count},#{result.no_one_selected_count},#{result.under_2_selected_count}"
+    puts "#{i},#{result.no_1_selected_count},#{result.nobody_selected_count},#{result.under_2_selected_count}"
   end
 end

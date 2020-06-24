@@ -4,18 +4,18 @@ module TheSecretaryProblem
   enum SimResult
     NO1_SELECTED
     UNDER_2_SELECTED
-    NO_ONE_SELECTED
+    NOBODY_SELECTED
   end
 
   class Result
     property no_1_selected_count : Int32
     property under_2_selected_count : Int32
-    property no_one_selected_count : Int32
+    property nobody_selected_count : Int32
 
     def initialize
       @no_1_selected_count = 0
       @under_2_selected_count = 0
-      @no_one_selected_count = 0
+      @nobody_selected_count = 0
     end
   end
 
@@ -35,8 +35,8 @@ module TheSecretaryProblem
           result.no_1_selected_count += 1
         when SimResult::UNDER_2_SELECTED
           result.under_2_selected_count += 1
-        when SimResult::NO_ONE_SELECTED
-          result.no_one_selected_count += 1
+        when SimResult::NOBODY_SELECTED
+          result.nobody_selected_count += 1
         end
       end
       return result
@@ -68,7 +68,7 @@ module TheSecretaryProblem
     def check(applicants, applicant) : SimResult
       case
       when applicant.nil?
-        return SimResult::NO_ONE_SELECTED
+        return SimResult::NOBODY_SELECTED
       when applicant.point == applicants.members.size - 1
         return SimResult::NO1_SELECTED
       else
