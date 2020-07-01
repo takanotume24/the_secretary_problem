@@ -1,4 +1,5 @@
-build:
+SRC = $(shell ls src -d)
+build: $(SRC)
 	mkdir -p bin
 	crystal build src/main.cr -o bin/main ${OPTION}
 

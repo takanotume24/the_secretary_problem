@@ -114,4 +114,30 @@ module TheSecretaryProblem
       @point = point
     end
   end
+
+  class TheoreticalFormula
+    def initialize(n : Int32, k : Int32)
+      @n = n
+      @k = k
+    end
+
+    def p_success
+      sum = 0
+      t = @k + 1
+
+      (@n - @k - 1).times do |i|
+        sum += 1 / ((t + i) - 1)
+      end
+
+      (@k / @n) * sum
+    end
+
+    def p_nobody
+      @k / @n
+    end
+
+    def p_notbest
+      1 - p_nobody - p_success
+    end
+  end
 end
